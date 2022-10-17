@@ -21,9 +21,11 @@ const Marketplace = ({client, link}: MarketplaceProps) => {
 
   // buy an asset
   async function buyNFT() {
-    await link.buy({
+    const buyResults = await link.buy({
       orderIds:[buyOrderId]
     })
+
+    return buyResults
   };
 
   return (
