@@ -1,0 +1,139 @@
+.main-asset {
+    display: grid;
+    grid-template-columns: 0.3fr 1fr;
+}
+
+.img-section {
+    border: 1px solid #c8c8c8;
+    border-radius: 11px;
+    margin-right: 40px;
+    padding: 17px;
+}
+
+.img-section img {
+    width: 25em;
+    height: 30em;
+}
+
+.btn-position {
+    text-align: center;
+   height: 50px;
+   flex: 1;
+   border-radius: 8px;
+}
+
+.action-section {
+    border: 1px solid #f4f3f3;
+    padding: 20px;
+    border-radius: 1em;
+    background: #f4f3f3;
+    margin-top: 20px;
+}
+
+.action-section .fa-ethereum{
+    font-size: 18px;
+    margin-left: 0px;
+    margin-right: 4px;
+}
+
+.amount-section{
+    display: flex;
+    align-items: center;
+}
+
+.action-section .eth-amount{
+    font-size: 30px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+}
+
+.action-section .usd-amount{
+    font-size: 16px;
+    font-weight: 400;
+    margin-left: 5px;
+}
+
+.own-label {
+    font-size: 16px;
+    font-weight: 400;
+    text-align: left;
+    font-style: normal;
+    color: rgb(193, 193, 193);
+    margin: 0px 0px 32px;
+}
+
+.eth-amount {
+    font-size: 16px;
+    font-weight: 700;
+    text-align: left;
+    font-style: normal;
+    color: rgb(61 58 58);
+    display: inline;
+}
+
+
+.asset .sub-container{
+    margin-left: 0px;
+    display: flex;
+    align-items: center;
+}
+
+.asset .sub-container img{
+    width: 32px;
+    height: 32px;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid rgb(76, 80, 93);
+}
+
+.asset .sub-container .text-spn{
+    font-size: 16px;
+    margin-left: 8px;
+    color: rgb(99 93 93);
+    font-weight: 400;
+    bottom: unset;
+}
+
+.asset h1{
+    font-size: 32px;
+    font-weight: 700;
+    margin: 15px 0px;
+}
+.own-div{
+    margin-bottom: 13px;
+}
+
+.buy-now-button{
+    width: 100%;
+    height: 50px;
+    font-size: 18px;
+    border-radius: 8px;
+}
+
+.amount {
+    /* float: left; */
+
+}
+
+.btn-style {
+    display: flex;
+    grid-column-gap: 11px;
+
+    margin-top: 10px;
+}
+
+
+.action-section{
+    position: relative;
+}
+
+.asset-img{
+    place-content: center;
+}
+
+.not-for-sale-section .not-for-sale{
+
+    font-size: 20px;
+    font-weight: 700;
+}

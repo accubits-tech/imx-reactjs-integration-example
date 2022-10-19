@@ -1,5 +1,4 @@
-import { ethers } from 'ethers';
-import { Link, ImmutableXClient, ImmutableMethodResults, MintableERC721TokenType } from '@imtbl/imx-sdk';
+import { Link, ImmutableXClient, ImmutableMethodResults } from '@imtbl/imx-sdk';
 import { ImmutableX, ImmutableXConfiguration } from '@imtbl/core-sdk';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';

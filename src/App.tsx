@@ -9,7 +9,6 @@ import Bridging from './Bridging';
 import Sidebar from "./Components/Sidebar/Sidebar";
 import getRoutes from "./util/Router";
 import { ethers } from "ethers";
-import { resolve } from 'dns';
 import getNetworkConfig from './util/Network';
 
 require('dotenv').config();

@@ -1,0 +1,28 @@
+.inline-body-content{
+    display: grid;
+    grid-template-columns: 0.3fr;
+    grid-column-gap: 29px;
+    padding: 5px;
+}
+
+.modal-content{
+    background-color: #ded7d7 !important;
+}
+
+.modal-header{
+    padding: 0.8rem !important;
+}
+
+.modal-footer{
+    /* padding: unset !important; */
+}
+
+/* .invent-btns{
+    margin-top: unset;
+} */
+
+
+.set-width{
+    width: 28em;
+    padding: 20px;
+}

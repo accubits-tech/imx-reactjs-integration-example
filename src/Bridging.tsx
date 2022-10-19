@@ -1,5 +1,5 @@
 
-import { Link, ImmutableXClient, ImmutableMethodResults, ERC721TokenType, ETHTokenType, ImmutableRollupStatus, ERC20TokenType  } from '@imtbl/imx-sdk';
+import { Link, ImmutableXClient, ImmutableMethodResults, ERC721TokenType, ETHTokenType, ERC20TokenType  } from '@imtbl/imx-sdk';
 import { ImmutableX, ImmutableXConfiguration } from '@imtbl/core-sdk';
 import { useEffect, useState } from 'react';
 import { useLocation } from "react-router-dom";

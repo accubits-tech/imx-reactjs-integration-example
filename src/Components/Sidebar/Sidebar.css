@@ -1,0 +1,186 @@
+.logo {
+    justify-content: center;
+}
+
+li span {
+    text-decoration: none;
+    color: white;
+}
+
+.main-sidebar .balance-div {
+    width: 11%;
+    height: 8.5em;
+    background: linear-gradient(to top left, #33ccff -2%, #ff99cc 99%);
+    border-radius: 12px;
+    padding: 0px 11px;
+    position: absolute;
+    bottom: 6px;
+    margin-left: 1.5em;
+}
+
+.main-sidebar .balance-div h5 {
+    text-align: center;
+    padding: 15px 15px 15px 15px;
+    font-size: 12px;
+    color: #e9e0e0;
+    margin-bottom: 0px;
+    font-weight: 500;
+}
+
+button:focus {
+    outline: none;
+}
+
+.inline-text {
+    font-size: 22px;
+    color: white;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
+    text-align: center;
+}
+
+.bal-btn {
+    padding: 8px;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    border-radius: 8px;
+    border: 1px solid white;
+    align-items: center;
+}
+
+.main-sidebar {
+    justify-content: center;
+    align-items: center;
+    width: 12%;
+    padding: 0px;
+    min-width: 15vw;
+}
+
+.sidebar-options {
+    list-style-type: none;
+    margin-top: 2vh;
+    border-top: 1px solid #686565;
+}
+
+.sidebar-options i {
+    margin-right: 1vw;
+    color: #fff;
+}
+
+.bal-btn-text {
+    font-weight: 600;
+    font-size: 12px;
+}
+
+.bal-btn .fa-plus-circle {
+    color: blue
+}
+
+.eth-div {
+    text-align: center;
+    color: #fff;
+    font-size: 11px;
+    margin: 6px 0px;
+}
+
+.eth-div .fa-ethereum {
+    color: rgb(0, 0, 0);
+}
+
+.eth-icon {
+    background: #fff;
+    font-size: 9px;
+    padding: 2px 5px;
+    border-radius: 10px;
+    margin-right: 5px;
+}
+
+.main-sidebar .hamburger-div {
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    margin-left: 2em;
+}
+
+.main-sidebar .hamburger-div svg {
+    margin-left: auto;
+}
+
+.sidebar-options li {
+    margin: 2vh 0px;
+}
+
+.sidebar-options .active-tab i,
+.sidebar-options .active-tab span {
+    color: #989898;
+}
+
+.sidebar-options .tab i:hover,
+.sidebar-options .tab span:hover {
+    opacity: .75;
+    color: #989898;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.connect-btn {
+    font-weight: bold;
+    border-radius: 2em;
+    padding: 9px 36px;
+    background: linear-gradient(to top left, #33ccff -2%, #ff99cc 99%);
+    cursor: pointer;
+    margin-left: 2em;
+}
+
+.signin-btn {
+    margin-top: 2vh;
+    justify-content: center;
+}
+
+.address-text {
+    position: relative;
+}
+
+.address-text::before {
+    background: rgb(5 189 7);
+    padding: 4px;
+    position: absolute;
+    border-radius: 10px;
+    top: 15px;
+    left: 14px;
+    content: "";
+}
+
+.address-text .fa-angle-down {
+    position: absolute;
+    right: 14px;
+    top: 14px;
+}
+
+.addressDropdown {
+    position: absolute;
+    background: #333131;
+    width: 175px;
+    top: 55px;
+    border-radius: 6px;
+}
+
+.disconnect-wallet {
+    font-weight: 500;
+    font-size: 14px;
+    color: rgb(208 53 71);
+    text-align: center;
+    padding: 9px 0px;
+}
+
+@media (max-width:800px) {
+    .main-sidebar {
+        height: 51em;
+    }
+
+}
