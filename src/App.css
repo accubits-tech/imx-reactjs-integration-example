@@ -76,7 +76,7 @@
 }
 
 .header-title {
-  background-image: url(./assets/images/background.jpg);
+  background-image: url("https://gateway.pinata.cloud/ipfs/Qma4mx3nFs9fj95teBw19mwFHyUf1m6enPeVpxcngn93GK/images/background.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   display: flex;
