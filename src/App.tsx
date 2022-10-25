@@ -1,5 +1,5 @@
 import './App.css';
-import { Link, ImmutableXClient } from '@imtbl/imx-sdk';
+import { Link, ImmutableXClient, ProviderPreference } from '@imtbl/imx-sdk';
 import { ImmutableX, Balance, ImmutableXConfiguration } from "@imtbl/core-sdk";
 import { useEffect, useState } from 'react';
 import { Route, Routes } from "react-router-dom";
@@ -47,12 +47,14 @@ const App = () => {
     setClient(await ImmutableXClient.build({publicApiUrl}))
   }
 
-  async function linkSetup(): Promise<void> {
-    const linkRes = await link.setup({});
+  async function linkSetup(providerPreference:ProviderPreference): Promise<void> {
+    const linkRes = await link.setup({ providerPreference })
     setAddress(linkRes.address)
 
-    localStorage.setItem("address", address);
-    setWallet(address);
+    localStorage.setItem("address", address)
+    setWallet(address)
+
+    console.log("Link Response: " + linkRes)
 
     updateBalance(core,address)
   }
@@ -68,24 +70,10 @@ const App = () => {
     const formattedBalance = ethers.utils.formatUnits(
       res.balance,
       18
-    );
+    )
   
     return formattedBalance
-  } 
-
-  // async function getBalance(address: string) {
-  //   const unformattedBalance: Balance = await core.getBalance({
-  //     owner: address,
-  //     address: "eth",
-  //   })
-
-  //   const formattedBalance = ethers.utils.formatUnits(
-  //     unformattedBalance.balance,
-  //     18
-  //   );
-
-  //   return formattedBalance
-  // }
+  }
 
   const updateBalance = async(core:ImmutableX, address:string) => {
     setBalance(await getUpdatedEthBalance(core, address))
@@ -261,21 +249,6 @@ const App = () => {
         </div>
       </div>
     </div>
-
-    // <div className="App">
-    //   <button onClick={linkSetup}>Setup</button>
-    //   <div>
-    //     Active wallet: {wallet}
-    //   </div>
-    //   <div>
-    //     ETH balance (in wei): {balance?.balance?.toString()}
-    //   </div>
-    //   <button onClick={() => setTab('marketplace')}>Marketplace</button>
-    //   <button onClick={() => setTab('inventory')}>Inventory</button>
-    //   <button onClick={() => setTab('bridging')}>Deposit and withdrawal</button>
-    //   <br/><br/><br/>
-    //   {handleTabs()}
-    // </div>
   );
 }
 

@@ -1,5 +1,5 @@
 
-import { Link, ImmutableXClient, ImmutableMethodResults, ERC721TokenType, ETHTokenType, ERC20TokenType  } from '@imtbl/imx-sdk';
+import { Link, ImmutableXClient, ImmutableMethodResults, ERC721TokenType, ETHTokenType, ERC20TokenType, ImmutableRollupStatus  } from '@imtbl/imx-sdk';
 import { ImmutableX, ImmutableXConfiguration } from '@imtbl/core-sdk';
 import { useEffect, useState } from 'react';
 import { useLocation } from "react-router-dom";
@@ -52,19 +52,19 @@ const Bridging = ({client, link, wallet}: BridgingProps) => {
   }, [location?.pathname])
 
   async function load(): Promise<void> {
-    // setPreparingWithdrawals(await client.getWithdrawals({
-    //   user: wallet,
-    //   rollup_status: ImmutableRollupStatus.included
-    // })) // included in batch awaiting confirmation
-    // setReadyWithdrawals(await client.getWithdrawals({
-    //   user: wallet,
-    //   rollup_status: ImmutableRollupStatus.confirmed,
-    //   withdrawn_to_wallet: false
-    // })) // confirmed on-chain in a batch and ready to be withdrawn
-    // setCompletedWithdrawals(await client.getWithdrawals({
-    //   user: wallet,
-    //   withdrawn_to_wallet: true
-    // })) // confirmed on-chain in a batch and already withdrawn to L1 wallet
+    setPreparingWithdrawals(await client.getWithdrawals({
+      user: wallet,
+      rollup_status: ImmutableRollupStatus.included
+    })) // included in batch awaiting confirmation
+    setReadyWithdrawals(await client.getWithdrawals({
+      user: wallet,
+      rollup_status: ImmutableRollupStatus.confirmed,
+      withdrawn_to_wallet: false
+    })) // confirmed on-chain in a batch and ready to be withdrawn
+    setCompletedWithdrawals(await client.getWithdrawals({
+      user: wallet,
+      withdrawn_to_wallet: true
+    })) // confirmed on-chain in a batch and already withdrawn to L1 wallet
   };
 
   // deposit eth

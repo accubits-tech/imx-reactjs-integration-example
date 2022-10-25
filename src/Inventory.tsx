@@ -118,9 +118,6 @@ const Inventory = ({client, link, wallet, setAssets}: InventoryProps) => {
                   <span className='text-spn'>{val?.description}</span>
                 </div>
               </div>
-                // ) : <div className='not-image'>
-                //   <div className='sub-img'>Image Not available</div>
-                // </div>
               })}
             </div>
           </div>
