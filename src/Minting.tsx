@@ -1,4 +1,4 @@
-import { ethers } from 'ethers';
+import { ethers, Wallet } from 'ethers';
 import { Link, ImmutableXClient } from '@imtbl/imx-sdk';
 import { ImmutableX } from '@imtbl/core-sdk';
 import { useState } from 'react';

@@ -1,5 +1,5 @@
 import './App.css';
-import { Link, ImmutableXClient } from '@imtbl/imx-sdk';
+import { Link, ImmutableXClient, ProviderPreference } from '@imtbl/imx-sdk';
 import { ImmutableX, Balance, ImmutableXConfiguration } from "@imtbl/core-sdk";
 import { useEffect, useState } from 'react';
 import { Route, Routes } from "react-router-dom";
@@ -47,12 +47,14 @@ const App = () => {
     setClient(await ImmutableXClient.build({publicApiUrl}))
   }
 
-  async function linkSetup(): Promise<void> {
-    const linkRes = await link.setup({});
+  async function linkSetup(providerPreference:ProviderPreference): Promise<void> {
+    const linkRes = await link.setup({ providerPreference })
     setAddress(linkRes.address)
 
-    localStorage.setItem("address", address);
-    setWallet(address);
+    localStorage.setItem("address", address)
+    setWallet(address)
+
+    console.log("Link Response: " + linkRes)
 
     updateBalance(core,address)
   }
@@ -68,7 +70,7 @@ const App = () => {
     const formattedBalance = ethers.utils.formatUnits(
       res.balance,
       18
-    );
+    )
   
     return formattedBalance
   }

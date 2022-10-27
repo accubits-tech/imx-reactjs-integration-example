@@ -62,7 +62,7 @@ const Listings = ({ wallet, link, selectedOrderId, setSelectedOrderId, sigin, se
                   <div className='sub-container'>
                     <img className='avatar-img'
                       src={user['sell']['data']['properties']['collection']['icon_url']} alt="" />
-                    <span className='text-spn'>@jessemillman.eth</span>
+                    <span className='text-spn'>Test Launch NFTs</span>
                   </div>
                 </div>
               )

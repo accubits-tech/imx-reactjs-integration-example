@@ -3,12 +3,13 @@ import { useNavigate, useLocation } from "react-router-dom";
 import { ImmutableX, Balance, ImmutableXConfiguration } from "@imtbl/core-sdk";
 import useOnclickOutside from "react-cool-onclickoutside";
 import "./Sidebar.css";
+import { ProviderPreference } from "@imtbl/imx-sdk";
 
 interface Props {
   balance: string
   wallet: string
   core: ImmutableX
-  signin: () => any;
+  signin: (providerPreference:ProviderPreference) => any;
   setSideHandler: (params: boolean) => any;
   disconnectWalletHandler: () => any;
   getSelectedDetails: any;
@@ -23,8 +24,9 @@ const Sidebar = ({
   disconnectWalletHandler,
   getSelectedDetails,
 }: Props) => {
-  const [sidebarTab, setSidebarTab] = useState("listing");
-  const [addressDropdown, setAddressDropdown] = useState(false);
+  const [sidebarTab, setSidebarTab] = useState("listing")
+  const [addressDropdown, setAddressDropdown] = useState(false)
+  const [walletDropdown, setWalletDropdown] = useState(false)
 
   let navigate = useNavigate();
   const location = useLocation();
@@ -107,9 +109,10 @@ const Sidebar = ({
                 : "connect-btn"
             }
             onClick={
-              wallet && wallet !== "undefined"
-                ? () => setAddressDropdown(!addressDropdown)
-                : signin
+              wallet && wallet !== "undefined" ?
+                () => setAddressDropdown(!addressDropdown)
+                :
+                () => setWalletDropdown(!walletDropdown)
             }
             type="button"
           >
@@ -122,14 +125,38 @@ const Sidebar = ({
               `Connect Wallet`
             )}
           </button>
+          {walletDropdown && (
+            <div className="walletDropdown">
+              <div
+                className="select-wallet pointer"
+                onClick={() => {
+                  signin(ProviderPreference.METAMASK)
+                  navigate("/listing")
+                  setWalletDropdown(false)
+                }}
+              >
+                Metamask
+              </div>
+              <div
+                className="select-wallet pointer"
+                onClick={() => {
+                  signin(ProviderPreference.MAGIC_LINK)
+                  navigate("/listing")
+                  setWalletDropdown(false)
+                }}
+              >
+                Magic
+              </div>
+            </div>
+          )}
           {addressDropdown && (
             <div className="addressDropdown">
               <div
                 className="disconnect-wallet pointer"
                 onClick={() => {
-                  disconnectWalletHandler();
-                  navigate("/listing");
-                  setAddressDropdown(false);
+                  disconnectWalletHandler()
+                  navigate("/listing")
+                  setAddressDropdown(false)
                 }}
               >
                 Disconnect Wallet
