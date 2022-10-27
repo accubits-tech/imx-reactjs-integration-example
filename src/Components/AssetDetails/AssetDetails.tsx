@@ -13,19 +13,12 @@ interface AsserProps {
     details?: any;
     getSelectedDetails?: any
 }
-type LocationState = {
-    from: {
-        pathName: string,
-        id: any
-    }
-}
 
 const AssetDetails = ({ client, link, wallet, sigin, details, getSelectedDetails }: AsserProps) => {
 
     const navigate = useNavigate()
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
     const [clickedBtnValue, setClickedValue] = useState('Transfer');
     const [transferRes, setTransferRes] = useState<any>(Object);
     const [data, setData] = useState(details);
@@ -74,15 +67,10 @@ const AssetDetails = ({ client, link, wallet, sigin, details, getSelectedDetails
                 tokenId: data?.token_id,
                 amount: input.amount,
                 tokenAddress: data?.token_address
-                // tokenAddress: '0x2ca7e3fa937cae708c32bc2713c20740f3c4fc3b',
-                // currencyAddress: '0x4c04c39fb6d2b356ae8b06c47843576e32a1963e',
             }
             const response = await link.sell(inputdata)
             navigate('/inventory')
         }
-
-        //navigate('/inventory');
-
     }
 
     return (
@@ -92,7 +80,6 @@ const AssetDetails = ({ client, link, wallet, sigin, details, getSelectedDetails
                     <div className="main-asset">
                         <div className="img-section">
                             <img src={pageName === "listing" ? data?.sell?.data?.properties?.image_url : 'https://image.shutterstock.com/image-vector/ui-image-placeholder-wireframes-apps-260nw-1037719204.jpg'} 
-                            // <img src={pageName === "listing" ? data?.sell?.data?.properties?.image_url : data?.image_url} 
                                 alt='test' />
                         </div>
                         <div className="detail-section">
@@ -115,8 +102,6 @@ const AssetDetails = ({ client, link, wallet, sigin, details, getSelectedDetails
                                 <div className="amount-section">
                                     <i className='fab fa-ethereum'></i>
                                     <span className="eth-amount">{pageName === "listing" ? data?.buy?.data?.quantity ? ethers?.utils?.formatUnits(data?.buy?.data?.quantity, data?.buy?.data?.decimals) : "" : data?.orders?.sell_orders[0]?.buy_quantity ? ethers.utils.formatUnits(data?.orders?.sell_orders[0]?.buy_quantity, data?.orders?.sell_orders[0]?.buy_decimals) : ""}</span>
-
-                                    {/* <span className="usd-amount">($165.28 USD)</span> */}
                                 </div>
                                 {pageName === "listing" ? <button onClick={() => { (wallet && wallet !== "undefined") ? buyNFT() : sigin() }} className="invent-btns btn-position buy-now-button">Buy</button> : <div className="btn-style ">
                                     <button onClick={() => commonClick('Transfer')} className="invent-btns btn-position">Transfer</button>

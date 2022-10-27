@@ -57,10 +57,6 @@ const Signing = ({ client, link, wallet }: SigningProps) => {
 
                         </div>
                     </div>
-
-
-
-
                 </div>
                 <br />
             </div>

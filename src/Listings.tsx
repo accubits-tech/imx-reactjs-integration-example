@@ -55,7 +55,6 @@ const Listings = ({ wallet, link, selectedOrderId, setSelectedOrderId, sigin, se
                   className={`cards ${user?.order_id.toString() === selectedOrderId && `cards-selected`}`}
                   onClick={() => {setAssets(user); navigate(`/listing/assets/${user?.order_id}`) }}>
 
-                  {/* //setSelectedOrderId(selectedOrderId!==user?.order_id.toString()?user?.order_id.toString():'')}> */}
                   <div className='img-div'>
                     <img src={user['sell']['data']['properties']['image_url']} alt="" />
                   </div>
@@ -70,11 +69,6 @@ const Listings = ({ wallet, link, selectedOrderId, setSelectedOrderId, sigin, se
             })
           }
         </div>
-        {/* <button className='buy-now-btn'
-          disabled={selectedOrderId ? false : true}
-          onClick={() => { (wallet && wallet !== "undefined") ? navigate("/marketplace") : sigin() }}>
-          Buy Now
-        </button> */}
       </div>
     </>
   )

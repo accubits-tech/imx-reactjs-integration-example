@@ -2,9 +2,7 @@ import { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { ImmutableX, Balance, ImmutableXConfiguration } from "@imtbl/core-sdk";
 import useOnclickOutside from "react-cool-onclickoutside";
-import { ethers } from 'ethers';
 import "./Sidebar.css";
-import getNetworkConfig from "../../util/Network";
 
 interface Props {
   balance: string
@@ -28,8 +26,6 @@ const Sidebar = ({
   const [sidebarTab, setSidebarTab] = useState("listing");
   const [addressDropdown, setAddressDropdown] = useState(false);
 
-  // const [balance, setBalance] = useState<string>("")
-
   let navigate = useNavigate();
   const location = useLocation();
 
@@ -40,16 +36,6 @@ const Sidebar = ({
   useEffect(() => {
     getSelectedDetails()
   }, []);
-
-  // useEffect(() => {
-  //   setBalance(balance)
-  // }, [])
-
-  // const updateBalance = async() => {
-  //   const newBalance = await getUpdatedEthBalance(core, wallet)
-
-  //   setBalance(newBalance)
-  // }
 
   const dropDownClick = useOnclickOutside(() => {
     setAddressDropdown(false);
@@ -161,12 +147,10 @@ const Sidebar = ({
                 className={`${
                   menu.Link.includes(sidebarTab) ? "active-tab" : "tab"
                 }   pointer`}
-                // ${(!wallet || wallet === "undefined") && "active-tab"}
                 onClick={() => {
                   navigate(menu.Link);
                 }}
               >
-                {/* (wallet && wallet !== "undefined") && */}
                 <i className={menu.icon} aria-hidden="true"></i>
                 <span>{menu.LabelName}</span>
               </li>

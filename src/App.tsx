@@ -20,10 +20,10 @@ const App = () => {
   const config: ImmutableXConfiguration = getNetworkConfig(process.env.REACT_APP_NETWORK_TYPE)
   const core = new ImmutableX(config)
 
-  // initialise ImmutableX Link SDK
+  // Initialise ImmutableX Link SDK
   const link = new Link(process.env.REACT_APP_SANDBOX_LINK_URL)
   
-  // general
+  // General
   const [tab, setTab] = useState<string>("marketplace")
   const [wallet, setWallet] = useState<string>("")
   const [address, setAddress] = useState<string>("")
@@ -41,7 +41,7 @@ const App = () => {
     localStorage.setItem("assetdetail", JSON.stringify(data));
   };
 
-  // initialise an Immutable X Client to interact with apis more easily
+  // Initialise an Immutable X Client to interact with apis more easily
   async function buildIMXClient() {
     const publicApiUrl: string = process.env.REACT_APP_SANDBOX_ENV_URL ?? '';
     setClient(await ImmutableXClient.build({publicApiUrl}))
@@ -71,21 +71,7 @@ const App = () => {
     );
   
     return formattedBalance
-  } 
-
-  // async function getBalance(address: string) {
-  //   const unformattedBalance: Balance = await core.getBalance({
-  //     owner: address,
-  //     address: "eth",
-  //   })
-
-  //   const formattedBalance = ethers.utils.formatUnits(
-  //     unformattedBalance.balance,
-  //     18
-  //   );
-
-  //   return formattedBalance
-  // }
+  }
 
   const updateBalance = async(core:ImmutableX, address:string) => {
     setBalance(await getUpdatedEthBalance(core, address))
@@ -125,7 +111,6 @@ const App = () => {
             <Marketplace
               client={client}
               link={link}
-              //selectedOrderId={selectedOrderId}
             />
           )
       }
@@ -139,7 +124,6 @@ const App = () => {
 
   const getSelectedDetails = () => {
     setSelectedDetails(JSON.parse(localStorage.getItem("assetdetail") || "{}"));
-    //setBalance(JSON.parse(localStorage.getItem("balance") || "{}"));
     setWallet(localStorage.getItem("address") || "undefined");
     setStatemaintain(JSON.parse(localStorage.getItem("stateDetails") || "{}"));
   };
@@ -151,14 +135,12 @@ const App = () => {
         "_blank",
         "noopener,noreferrer"
       );
-      // window.location.href = "";
     } else if (btnName == "Contact") {
       window.open(
         "https://www.immutable.com/contact",
         "_blank",
         "noopener,noreferrer"
       );
-      // window.location.href = "";
     }
   };
 
@@ -261,21 +243,6 @@ const App = () => {
         </div>
       </div>
     </div>
-
-    // <div className="App">
-    //   <button onClick={linkSetup}>Setup</button>
-    //   <div>
-    //     Active wallet: {wallet}
-    //   </div>
-    //   <div>
-    //     ETH balance (in wei): {balance?.balance?.toString()}
-    //   </div>
-    //   <button onClick={() => setTab('marketplace')}>Marketplace</button>
-    //   <button onClick={() => setTab('inventory')}>Inventory</button>
-    //   <button onClick={() => setTab('bridging')}>Deposit and withdrawal</button>
-    //   <br/><br/><br/>
-    //   {handleTabs()}
-    // </div>
   );
 }
 

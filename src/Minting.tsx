@@ -27,18 +27,10 @@ const Minting = ({ client, link, wallet, setAssets }: MintProps) => {
   const [mintRoyaltyWalletv2, setMintRoyaltyWalletv2] = useState('')
   const navigate = useNavigate()
 
-  // helper function to generate random ids
-  function random()
-      : number {
-      const min = 1;
-      const max = 1000000000;
-      return Math.floor(Math.random() * (max - min + 1)) + min;
-  }
-
   async function mintv2() {
 
       /**
-      //if you want to mint on a back end server you can also provide the private key of your wallet directly to the minter. 
+      //If you want to mint on a back end server you can also provide the private key of your wallet directly to the minter. 
       //Please note: you should never share your private key and so ensure this is only done on a server that is not accessible from the internet
       const minterPrivateKey: string = process.env.REACT_APP_MINTER_PK ?? ''; // registered minter for your contract
       const minter = new ethers.Wallet(minterPrivateKey).connect(provider);
@@ -46,55 +38,45 @@ const Minting = ({ client, link, wallet, setAssets }: MintProps) => {
   
       const provider = new ethers.providers.Web3Provider(window.ethereum)
       await provider.send("eth_requestAccounts", []);
-      const minter = provider.getSigner(); //get Signature from Metamask wallet
+      const signer = provider.getSigner(); //get Signature from Metamask wallet
   
       const publicApiUrl: string = process.env.REACT_APP_SANDBOX_ENV_URL ?? '';
       const starkContractAddress: string = process.env.REACT_APP_SANDBOX_STARK_CONTRACT_ADDRESS ?? '';
       const registrationContractAddress: string = process.env.REACT_APP_SANDBOX_REGISTRATION_ADDRESS ?? '';
       const minterClient = await ImmutableXClient.build({
         publicApiUrl,
-        signer: minter,
+        signer,
         starkContractAddress,
         registrationContractAddress,
       })
   
-      //start debugging here
       console.log(minterClient)
 
-      
       const tokens = [...Array(mintAmountv2)].map((_,i) => ({
         id: (Number(mintTokenIdv2) + i).toString(),
         blueprint: 'Launch '+ (Number(mintTokenIdv2) + i),
       }))
 
-      console.log(tokens)
-
-      //it's calling v1/mint
-      try {
-        const result = await minterClient.mintV2([{
-                contractAddress: mintTokenAddressv2.toLowerCase(),
-                users: [{
-                  etherKey: mintReceivingWalletv2.toLowerCase(),
-                  tokens
-                }],
-                royalties: [{
-                  recipient: mintRoyaltyWalletv2.toLowerCase(),
-                  //try looking here too
-                  percentage: Number(mintRoyaltyAmountv2)
-                }],
-              }])
-        console.log("Token Minted! Result: " + result)        
-      } catch (error) {
-        console.log("ERROR WITH MINTING: " + JSON.stringify(error, null, 2));
-      }
+      const result = await minterClient.mintV2([{
+        contractAddress: mintTokenAddressv2.toLowerCase(),
+        users: [{
+          etherKey: mintReceivingWalletv2.toLowerCase(),
+          tokens
+        }],
+        royalties: [{
+          recipient: mintRoyaltyWalletv2.toLowerCase(),
+          //try looking here too
+          percentage: Number(mintRoyaltyAmountv2)
+        }],
+      }]) 
+      console.log("Token Minted! Result: " + result)        
       
       const assetResponse = await core.listAssets({
         user: wallet,
         sellOrders: true
       })
-      // navigate('/inventory');
-      // setInventory(assetResponse['data'])
-    };
+      navigate('/inventory')
+    }
     
   return (
       <div className='mint-div'>

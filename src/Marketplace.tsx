@@ -19,7 +19,7 @@ const Marketplace = ({client, link}: MarketplaceProps) => {
     setMarketplace(await client.getOrders({status: ImmutableOrderStatus.active, user: '0xc120a52ad90bb926bafcdfc9161740dcf4a2cea1'}))
   };
 
-  // buy an asset
+  // Buy an asset
   async function buyNFT() {
     const buyResults = await link.buy({
       orderIds:[buyOrderId]

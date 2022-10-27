@@ -102,25 +102,22 @@ const Inventory = ({client, link, wallet, setAssets}: InventoryProps) => {
           </div>
           <div className='inline-div'   >
             <div className='card-split-invent' >
-              {inventory?.result?.map((val: any, i: any) => {
-                return val['image_url'] != null ? (
-                  <div key={i} className='cards' onClick={() => { setAssets(val); navigate(`/inventory/assets/${val.token_id}`) }} >
-                    <img src={val?.image_url ?? ""} alt="profile" />
-                    <p>{val?.name}</p>
-                    <div>
-                      <span className='text-spn'>{val?.description}</span>
+                {inventory?.result?.map((val: any, i: any) => {
+                  return val['image_url'] != null ? (
+                    <div key={i} className='cards' onClick={() => { setAssets(val); navigate(`/inventory/assets/${val.token_id}`) }} >
+                      <img src={val?.image_url ?? ""} alt="profile" />
+                      <p>{val?.name}</p>
+                      <div>
+                        <span className='text-spn'>{val?.description}</span>
+                      </div>
                     </div>
+                  ) : <div key={i} className='cards' onClick={() => { setAssets(val); navigate(`/inventory/assets/${val.token_id}`) }} >
+                  <img src='https://image.shutterstock.com/image-vector/ui-image-placeholder-wireframes-apps-260nw-1037719204.jpg' alt="profile" />
+                  <p>{val?.name}</p>
+                  <div>
+                    <span className='text-spn'>{val?.description}</span>
                   </div>
-                ) : <div key={i} className='cards' onClick={() => { setAssets(val); navigate(`/inventory/assets/${val.token_id}`) }} >
-                <img src='https://image.shutterstock.com/image-vector/ui-image-placeholder-wireframes-apps-260nw-1037719204.jpg' alt="profile" />
-                <p>{val?.name}</p>
-                <div>
-                  <span className='text-spn'>{val?.description}</span>
                 </div>
-              </div>
-                // ) : <div className='not-image'>
-                //   <div className='sub-img'>Image Not available</div>
-                // </div>
               })}
             </div>
           </div>

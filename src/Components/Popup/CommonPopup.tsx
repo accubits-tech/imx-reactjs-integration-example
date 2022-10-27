@@ -1,6 +1,5 @@
 
 import Modal from 'react-bootstrap/Modal';
-import Button from 'react-bootstrap/Button';
 import { useState } from 'react';
 import './CommonPopup.css';
 
@@ -28,7 +27,6 @@ const CommonPopup = ({ show, handleClose, headerName, ClickedButton, performFuct
             dataObj['amount'] = amount;
             return performFuction(dataObj)
         }
-
     }
 
     return (
@@ -53,10 +51,7 @@ const CommonPopup = ({ show, handleClose, headerName, ClickedButton, performFuct
                                     <input type="text" className='input-field set-width' value={amount} onChange={e => setAmount(e.target.value)} />
                                 </label>
                             </>
-
                         }
-
-
                     </div>
                 </Modal.Body>
                 <Modal.Footer>
@@ -64,7 +59,6 @@ const CommonPopup = ({ show, handleClose, headerName, ClickedButton, performFuct
                         <button className='invent-btns' onClick={(a) => getValue()}>{ClickedButton == 'Transfer' ? 'Transfer' : 'Sell'}</button>
                         <button className='invent-btns' onClick={handleClose}>Close</button>
                     </>
-
                 </Modal.Footer>
             </Modal>
         </>
