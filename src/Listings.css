@@ -1,0 +1,97 @@
+.top-header {
+    display: grid;
+    grid-template-columns: 0.2fr 0.1fr 0.2fr;
+    grid-column-gap: 5px;
+    align-items: center;
+  }
+
+  .top-header h3{
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 0px;
+  }
+
+  .inline-div {
+    background-color: white;
+    border: 1px solid white;
+    border-radius: 1em;
+    padding: 36px 0px;
+  }
+  
+  .cards {
+    padding: 1em;
+    margin: 1em;
+    cursor: pointer;
+  }
+
+  .cards .img-div{
+    text-align: center;
+  }
+
+  .cards-selected,.cards:hover{
+    background-color: rgb(125 128 135);;
+    border: 1px solid #fff;
+    border-radius: 2em;
+  }
+  
+  .cards img {
+    width: 100%;
+    height: 13em;
+    border-radius: 1em 1em 0em 0em;
+  }
+  
+  .cards p {
+    font-weight: bold;
+    text-align: center;
+  }
+  
+  .avatar-img {
+    width: 1.5em !important;
+    height: 1.5em !important;
+  }
+  
+  .text-spn {
+    font-size: 12px;
+    position: relative;
+    bottom: 7px;
+    margin-left: 4px;
+  }
+  
+  .card-split {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .active-btn{
+    background: #bcb0d8;
+  }
+  .not-active-btn{
+    background: #fff;
+    color: #9a9191;
+  }
+
+  .connect-wallet-section{
+    height: 41vh;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .sub-container{
+    display: flex;
+    align-items: baseline;
+  }
+
+  .buy-now-btn{
+    position: fixed;
+    bottom: 32px;
+    right: 125px;
+    border-radius: 2em;
+    padding: 12px 30px;
+    background: linear-gradient(to top left, #33ccff -2%, #ff99cc 99%);
+    font-weight: 600;
+    border: none;
+    outline: none;
+    cursor: pointer;
+  }

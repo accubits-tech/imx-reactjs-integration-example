@@ -1,0 +1,167 @@
+.mint-div {
+    background-color: white;
+    border: 1px solid white;
+    border-radius: 1em;
+    padding: 20px;
+}
+
+.header-mint {
+    display: grid;
+    grid-template-columns: 0.2fr 0.2fr 0.2fr;
+    grid-column-gap: 12px;
+    align-items: center;
+}
+
+.inline-mint {
+    border: 1px solid rgb(212, 200, 200);
+    padding: 40px 20px;
+    /* text-align: center; */
+    margin-left: 20px;
+    border-radius: 2em;
+}
+
+.inline-mint h4 {
+    /* margin-top: 0px; */
+    margin-top: 0px;
+    font-size: 17px;
+    font-weight: 600;
+}
+
+.inline-controls {
+    display: grid;
+    grid-template-columns: 0.2fr 0.2fr 0.2fr;
+    margin-left: 20px;
+    align-items: center;
+    column-gap: 20px;
+}
+
+.asset {
+    grid-template-columns: 0.2fr 0.2fr 0.2fr 0.2fr;
+}
+
+.order {
+    grid-template-columns: 0.2fr 0.2fr;
+}
+
+.invent-btns {
+    height: 35px;
+    border-radius: 2em;
+    font-weight: bold;
+    width: 10em;
+    /* padding: 8px; */
+    background: linear-gradient(to top left, #33ccff -2%, #ff99cc 99%);
+    cursor: pointer;
+    border: none;
+    margin-top: 0.8em;
+}
+
+.theader-signin h3 {
+    font-weight: 600;
+    font-size: 17px;
+}
+
+.cust-position {
+    margin-top: 1.5em;
+}
+
+.input-field {
+    height: 30px;
+    border-radius: 0.4em;
+    border: 1px solid #393636e3;
+    margin-top: 10px;
+    margin-bottom: 9px;
+
+}
+
+.deposit-btn {
+    width: 15em
+}
+
+
+.complete-btn {
+    margin-top: unset;
+    margin-bottom: 13px;
+}
+
+.not-image {
+    border: 1px solid rgb(212, 200, 200);
+    padding: 1em;
+    margin: 1em;
+    border-radius: 2em;
+    min-height: 19em;
+}
+
+.sub-img {
+    text-align: center;
+    margin-top: 8em;
+}
+
+.card-split-invent {
+    display: grid;
+    grid-template-columns: 0.3fr 0.3fr 0.3fr 0.3fr
+}
+
+.theader-signin {
+    /* text-align: center; */
+}
+
+.inventory-section .cards p {
+    margin-left: 0px;
+    margin-bottom: 5px;
+    margin-top: 7px;
+}
+
+
+.signin-input-controls {
+    display: grid;
+    grid-template-columns: 0.2fr 0.2fr 0.8fr;
+    margin-left: 20px;
+    align-items: center;
+    /* place-content: center; */
+}
+
+.sigin-field {
+    height: 35px;
+    min-width: 21em;
+    border-radius: 0.4em;
+    border: 1px solid #393636e3;
+    margin-top: 25px;
+    margin-right: 11px;
+}
+
+.text-area {
+    /* margin-left: 1.8em; */
+    width: 35em;
+    font-size: 14px;
+    line-height: unset
+}
+
+.sigin-div {
+    display: grid;
+    grid-template-columns: 0.8fr 0.8fr;
+    column-gap: 12px;
+}
+
+.State-details {
+    display: grid;
+    grid-template-columns: 0.4fr 0.1fr 0fr;
+    margin-left: 2em;
+    row-gap: 1em;
+    margin-top: 27px;
+}
+
+.state-value {
+    font-weight: 600;
+    width: 26em;
+    overflow-wrap: break-word;
+
+}
+
+.state-h3 h3 {
+    font-size: 19px;
+    font-weight: 600;
+}
+
+.t-address {
+    width: 7em;
+}
